@@ -6,14 +6,14 @@
 #    By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/20 17:16:20 by abakirca          #+#    #+#              #
-#    Updated: 2024/10/20 19:21:43 by abakirca         ###   ########.fr        #
+#    Updated: 2024/10/21 15:58:17 by abakirca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	megaphone
 
 CC				=	g++
-CFLAGS			=	-Wall -Werror -Wextra
+CFLAGS			=	-Wall -Werror -Wextra -g -o
 STD				=	-std=c++98
 
 RM				=	rm -rf
