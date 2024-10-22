@@ -6,7 +6,7 @@
 /*   By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 19:15:04 by abakirca          #+#    #+#             */
-/*   Updated: 2024/10/21 18:06:48 by abakirca         ###   ########.fr       */
+/*   Updated: 2024/10/22 15:26:09 by abakirca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ void SetCursorPosition(int row, int col)
 
 int main()
 {
-	PhoneBook phbook;
-	std::string Input;
-	phbook.index = 0;
-	phbook.count = 0;
+	PhoneBook book;
+	std::string input;
+	book.index = 0;
+	book.count = 0;
 	Starting();
 	while (1)
 	{
@@ -49,28 +49,34 @@ int main()
 		std::cout << "\033[0;32m[ADD]";
 		std::cout << "\t[SEARCH]";
 		std::cout << "   [EXIT]\033[0m" << std::endl << std::endl << "\033[0;31m> \033[0m";
-		std::getline(std::cin, Input);
-		if (Input.empty())
+		std::getline(std::cin, input);
+		if (input.empty())
 		{
+			if (std::cin.eof())
+			{
+				SetCursorPosition(12, 0);
+				std::cout << std::endl <<"\033[0;31mGoodbye Cruel World...\033[0m" << std::endl << std::endl;
+				exit(0);
+			}
 			SetCursorPosition(12, 0);
 			continue;
 		}
-		else if (Input == "ADD")
+		else if (input == "ADD")
 		{
 			SetCursorPosition(12, 0);
-			phbook.Add();
+			book.Add();
 			SetCursorPosition(12, 0);
 		}
-		else if (Input == "SEARCH")
+		else if (input == "SEARCH")
 		{
 			SetCursorPosition(12, 0);
-			phbook.Search();
+			book.Search();
 		}
-		else if (Input == "EXIT")
+		else if (input == "EXIT")
 		{
 			SetCursorPosition(12, 0);
 			std::cout << std::endl <<"\033[0;31mGoodbye Cruel World...\033[0m" << std::endl << std::endl;
-			return (0);
+			exit(0);
 		}
 		else
 		{

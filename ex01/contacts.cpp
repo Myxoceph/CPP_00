@@ -6,7 +6,7 @@
 /*   By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 19:15:09 by abakirca          #+#    #+#             */
-/*   Updated: 2024/10/21 17:58:42 by abakirca         ###   ########.fr       */
+/*   Updated: 2024/10/22 15:41:02 by abakirca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,16 @@ void PhoneBook::Add()
 		std::cout << "Please enter the first name: ";
 		std::getline(std::cin, input);
 		if (input.empty())
+		{
+			if (std::cin.eof())
+			{
+				SetCursorPosition(12, 0);
+				std::cout << std::endl <<"\033[0;31mGoodbye Cruel World...\033[0m" << std::endl << std::endl;
+				exit(0);
+			}
+			SetCursorPosition(12, 0);
 			continue;
+		}
 		for (char ch : input)
 			if (ch == '\t' || ch == '\n')
 				continue;
@@ -40,7 +49,16 @@ void PhoneBook::Add()
 		std::cout << "Please enter the last name: ";
 		std::getline(std::cin, input);
 		if (input.empty())
+		{
+			if (std::cin.eof())
+			{
+				SetCursorPosition(12, 0);
+				std::cout << std::endl <<"\033[0;31mGoodbye Cruel World...\033[0m" << std::endl << std::endl;
+				exit(0);
+			}
+			SetCursorPosition(12, 0);
 			continue;
+		}
 		for (char ch : input)
 			if (ch == ' ' || ch == '\t' || ch == '\n')
 				continue;
@@ -53,7 +71,16 @@ void PhoneBook::Add()
 		std::cout << "Please enter the nickname: ";
 		std::getline(std::cin, input);
 		if (input.empty())
+		{
+			if (std::cin.eof())
+			{
+				SetCursorPosition(12, 0);
+				std::cout << std::endl <<"\033[0;31mGoodbye Cruel World...\033[0m" << std::endl << std::endl;
+				exit(0);
+			}
+			SetCursorPosition(12, 0);
 			continue;
+		}
 		for (char ch : input)
 			if (ch == '\t' || ch == '\n')
 				continue;
@@ -66,7 +93,16 @@ void PhoneBook::Add()
 		std::cout << "Please enter the phone number: ";
 		std::getline(std::cin, input);
 		if (input.empty())
+		{
+			if (std::cin.eof())
+			{
+				SetCursorPosition(12, 0);
+				std::cout << std::endl <<"\033[0;31mGoodbye Cruel World...\033[0m" << std::endl << std::endl;
+				exit(0);
+			}
+			SetCursorPosition(12, 0);
 			continue;
+		}
 		for (char ch : input)
 		{
 			if (ch < '0' || ch > '9')
@@ -89,7 +125,16 @@ void PhoneBook::Add()
 		std::cout << "Please enter the darkest secret: ";
 		std::getline(std::cin, input);
 		if (input.empty())
+		{
+			if (std::cin.eof())
+			{
+				SetCursorPosition(12, 0);
+				std::cout << std::endl <<"\033[0;31mGoodbye Cruel World...\033[0m" << std::endl << std::endl;
+				exit(0);
+			}
+			SetCursorPosition(12, 0);
 			continue;
+		}
 		break;
 	}
 	this->book[this->index].secret = input;
@@ -108,19 +153,22 @@ void PhoneBook::Search()
 		std::cout << "No contacts to display. ";
 		return ;
 	}
-	std::cout << "     Index|First Name| Last Name|  Nickname" << std::endl;
+	std::cout << std::setw(10) <<"Index" << "|";
+	std::cout << std::setw(10) <<"First Name" << "|";
+	std::cout << std::setw(10) <<"Last Name" << "|";
+	std::cout << std::setw(10) <<"Nickname" << std::endl;
 	while (i < this->count)
 	{
 		std::cout << std::setw(10) << this->book[i].index << "|";
-		if (this->book[i].first_name.length() > 10)
+		if (this->book[i].first_name.length() >= 10)
 			std::cout << std::setw(9) << this->book[i].first_name.substr(0, 9) << ".|";
 		else
 			std::cout << std::setw(10) << this->book[i].first_name << "|";
-		if (this->book[i].last_name.length() > 10)
+		if (this->book[i].last_name.length() >= 10)
 			std::cout << std::setw(9) << this->book[i].last_name.substr(0, 9) << ".|";
 		else
 			std::cout << std::setw(10) << this->book[i].last_name << "|";
-		if (this->book[i].nickname.length() > 10)
+		if (this->book[i].nickname.length() >= 10)
 			std::cout << std::setw(9) << this->book[i].nickname.substr(0, 9) << "." << std::endl;
 		else
 			std::cout << std::setw(10) << this->book[i].nickname << std::endl;
@@ -131,7 +179,16 @@ void PhoneBook::Search()
 		std::cout << "Please enter the index of the contact: ";
 		std::getline(std::cin, input);
 		if (input.empty())
+		{
+			if (std::cin.eof())
+			{
+				SetCursorPosition(12, 0);
+				std::cout << std::endl <<"\033[0;31mGoodbye Cruel World...\033[0m" << std::endl << std::endl;
+				exit(0);
+			}
+			SetCursorPosition(12, 0);
 			continue;
+		}
 		for (char ch : input)
 		{
 			if (ch < '0' || ch > '9')
