@@ -6,7 +6,7 @@
 /*   By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:40:23 by abakirca          #+#    #+#             */
-/*   Updated: 2024/10/22 18:29:19 by abakirca         ###   ########.fr       */
+/*   Updated: 2024/10/23 15:50:40 by abakirca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,10 +104,10 @@ void Account::displayStatus( void ) const
 
 void Account::_displayTimestamp(void)
 {
-    char timestamp[20];
-    std::time_t now;
-	
+	char timestamp[20];
+	std::time_t now;
+
 	std::time(&now);
-    std::strftime(timestamp, sizeof(timestamp), "%Y%m%d_%H%M%S", std::localtime(&now));
+	std::strftime(timestamp, sizeof(timestamp), "%Y%m%d_%H%M%S", std::localtime(&now));
 	std::cout << "[" << timestamp << "] ";
 }

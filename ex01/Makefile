@@ -1,24 +1,24 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/20 17:16:20 by abakirca          #+#    #+#              #
-#    Updated: 2024/10/20 19:20:45 by abakirca         ###   ########.fr        #
+#    Updated: 2024/10/23 14:35:50 by abakirca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	phonebook
 
-CC				=	g++
+CC				=	c++
 CFLAGS			=	-Wall -Werror -Wextra
 STD				=	-std=c++98
 
 RM				=	rm -rf
 
-SRCS 			=	phonebook.cpp contacts.cpp main.cpp
+SRCS 			=	phonebook.cpp main.cpp utils.cpp
 
 OBJ 			=	$(SRCS:.cpp=.o)
 
@@ -31,11 +31,11 @@ COLOR_END		=	\033[0m
 all				:	$(NAME)
 
 $(NAME)			:	$(OBJ)
-					@$(CC) $(CFLAGS) $^ -o $(NAME)
+					@$(CC) $(CFLAGS) $(STD) $^ -o $(NAME)
 					@echo "\n\e[1m$(COLOR_YELLOW)$(NAME)	$(COLOR_GREEN)[is ready!]\e[0m\n$(COLOR_END)"
 
 %.o				:	%.cpp
-					@$(CC) $(FLAGS) -c $< -o $@
+					@$(CC) $(CFLAGS) $(STD) -c $< -o $@
 
 clean			:
 					@$(RM) -rf $(OBJ)

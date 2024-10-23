@@ -1,19 +1,19 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/20 17:16:20 by abakirca          #+#    #+#              #
-#    Updated: 2024/10/21 15:58:17 by abakirca         ###   ########.fr        #
+#    Updated: 2024/10/23 13:57:06 by abakirca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	megaphone
 
-CC				=	g++
-CFLAGS			=	-Wall -Werror -Wextra -g -o
+CC				=	c++
+CFLAGS			=	-Wall -Werror -Wextra
 STD				=	-std=c++98
 
 RM				=	rm -rf
@@ -31,11 +31,11 @@ COLOR_END		=	\033[0m
 all				:	$(NAME)
 
 $(NAME)			:	$(OBJ)
-					@$(CC) $(CFLAGS) $^ -o $(NAME)
+					@$(CC) $(CFLAGS) $(STD) $^ -o $(NAME)
 					@echo "\n\e[1m$(COLOR_YELLOW)$(NAME)	$(COLOR_GREEN)[is ready!]\e[0m\n$(COLOR_END)"
 
 %.o				:	%.cpp
-					@$(CC) $(FLAGS) -c $< -o $@
+					@$(CC) $(CFLAGS) $(STD) -c $< -o $@
 
 clean			:
 					@$(RM) -rf $(OBJ)

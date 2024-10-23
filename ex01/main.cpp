@@ -6,7 +6,7 @@
 /*   By: abakirca <abakirca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 19:15:04 by abakirca          #+#    #+#             */
-/*   Updated: 2024/10/22 15:26:09 by abakirca         ###   ########.fr       */
+/*   Updated: 2024/10/23 14:09:13 by abakirca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ int main()
 {
 	PhoneBook book;
 	std::string input;
-	book.index = 0;
-	book.count = 0;
 	Starting();
 	while (1)
 	{
